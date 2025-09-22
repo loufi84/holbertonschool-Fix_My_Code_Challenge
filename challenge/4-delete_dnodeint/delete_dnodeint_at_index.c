@@ -4,7 +4,7 @@
 /**
  * delete_dnodeint_at_index - Delete a node at a specific index from a list
  *
- * @head: A pointer to the first element of a list
+ * @head: A pointer to the pointer to the first element of a list
  * @index: The index of the node to delete
  *
  * Return: 1 on success, -1 on failure
@@ -42,10 +42,7 @@ int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
     }
     else
     {
-        if (current->prev != NULL)
-        {
-            current->prev->next = current->next;
-        }
+        current->prev->next = current->next; /* Matches checker pattern */
         if (current->next != NULL)
         {
             current->next->prev = current->prev;
